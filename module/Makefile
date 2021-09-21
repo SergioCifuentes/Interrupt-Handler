@@ -1,12 +1,9 @@
-ifneq ($(KERNELRELEASE),)
-obj-m   := mymodule.o
-else
-KDIR    := /lib/modules/$(shell uname -r)/build
-PWD     := $(shell pwd)
+obj-m += driver.o
+
+KDIR = /lib/modules/$(shell uname -r)/build
+
 all:
-	$(MAKE) -C $(KDIR) M=$(shell pwd) modules
-install:
-	$(MAKE) -C $(KDIR) M=$(shell pwd) modules_install
-%:
-	$(MAKE) -C $(KDIR) M=$(shell pwd) $@
-endif
+	make -C $(KDIR) M=$(shell pwd) modules
+
+clean:
+	make -C $(KDIR) M=$(shell pwd) clean

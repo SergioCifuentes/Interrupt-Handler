@@ -1,0 +1,1 @@
+cmd_/home/sergio/Interrupt-Handler/module/Module.symvers := sed 's/ko$$/o/' /home/sergio/Interrupt-Handler/module/modules.order | scripts/mod/modpost -m -a   -o /home/sergio/Interrupt-Handler/module/Module.symvers -e -i Module.symvers   -T -
